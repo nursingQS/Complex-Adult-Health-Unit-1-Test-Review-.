@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ATI RN Nursing Exam Comprehensive Study Guide - EXAM MODE</title>
+        <style>
+                :root {
+                        --dark: #0d2b6b;
+                        --mid: #1a4ba8;
+                        --accent: #ffd700;
+                        --bg: #eef3ff;
+                        --border: #b8ccf0;
+                        --hover: #d8e6ff;
+                        --nav: #c0d0f0;
+                        --rat-bg: #dce8ff;
+                        --rat-border: #1a4ba8;
+                        --text: #061840;
+                }
+
+                * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+                }
+
+                body {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        height: 100vh;
+                        width: 100vw;
+                        overflow: hidden;
+                }
+
+                .container {
+                        width: 100vw;
+                        height: 100vh;
+                        background: var(--bg);
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+                        transition: background 0.4s;
+                }
+
+                .header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 12px 24px;
+                        flex-shrink: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        height: 70px;
+                        border-bottom: 4px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .header h1 {
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                }
+
+                .header h1 span {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.9rem;
+                        padding: 4px 12px;
+                        border-radius: 40px;
+                        font-weight: 600;
+                }
+
+                .subtitle {
+                        font-size: 0.85rem;
+                        opacity: 0.9;
+                        margin-top: 2px;
+                }
+
+                .counter {
+                        background: rgba(255, 255, 255, 0.15);
+                        padding: 6px 20px;
+                        border-radius: 60px;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+                        border: 2px solid var(--accent);
+                }
+
+                .progress-container {
+                        width: 100%;
+                        height: 6px;
+                        background: var(--border);
+                        flex-shrink: 0;
+                }
+
+                .progress-bar {
+                        background: linear-gradient(90deg, var(--accent), var(--mid));
+                        height: 100%;
+                        width: 0%;
+                        transition: width 0.3s;
+                }
+
+                .main-content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        padding: 16px 24px;
+                        background: var(--bg);
+                        transition: background 0.4s;
+                }
+
+                .assessment-indicator {
+                        background: #fff;
+                        padding: 6px 18px;
+                        border-radius: 60px;
+                        display: inline-block;
+                        align-self: flex-start;
+                        margin-bottom: 12px;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        transition: border-color 0.4s, color 0.4s;
+                }
+
+                .assessment-indicator i {
+                        background: var(--dark);
+                        color: white;
+                        padding: 2px 10px;
+                        border-radius: 40px;
+                        margin-right: 10px;
+                        font-style: normal;
+                        transition: background 0.4s;
+                }
+
+                .badge {
+                        background: var(--accent);
+                        color: var(--dark);
+                        font-size: 0.75rem;
+                        padding: 3px 8px;
+                        border-radius: 20px;
+                        margin-left: 10px;
+                        font-weight: 600;
+                }
+
+                .question-area {
+                        flex: 1;
+                        background: white;
+                        border-radius: 24px;
+                        padding: 20px;
+                        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                        border: 2px solid var(--accent);
+                        overflow-y: auto;
+                        margin-bottom: 12px;
+                        display: flex;
+                        flex-direction: column;
+                        transition: border-color 0.4s;
+                }
+
+                .question-header {
+                        display: flex;
+                        gap: 15px;
+                        align-items: flex-start;
+                        margin-bottom: 20px;
+                }
+
+                .question-number {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .question-text {
+                        font-size: 1.2rem;
+                        line-height: 1.5;
+                        color: var(--text);
+                        font-weight: 600;
+                        flex: 1;
+                        transition: color 0.4s;
+                }
+
+                .options-container {
+                        display: grid;
+                        gap: 12px;
+                        margin-bottom: 12px;
+                }
+
+                .option {
+                        padding: 14px 18px;
+                        border: 2px solid var(--border);
+                        border-radius: 18px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        background: white;
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        font-size: 1rem;
+                }
+
+                .option:hover {
+                        background: var(--hover);
+                        border-color: var(--mid);
+                }
+
+                .option-letter {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: bold;
+                        font-size: 1rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                        transition: all 0.15s;
+                }
+
+                .option.selected {
+                        background: #fffde7;
+                        border-color: var(--accent);
+                }
+
+                .option.selected .option-letter {
+                        background: var(--accent);
+                        color: var(--dark);
+                        border-color: var(--dark);
+                }
+
+                .option.correct {
+                        background: #c8e6c9;
+                        border-color: #2e7d32;
+                }
+
+                .option.correct .option-letter {
+                        background: #2e7d32;
+                        border-color: #1b5e20;
+                        color: white;
+                }
+
+                .option.incorrect {
+                        background: #ffcdd2;
+                        border-color: #c62828;
+                }
+
+                .option.incorrect .option-letter {
+                        background: #c62828;
+                        border-color: #8e1a1a;
+                        color: white;
+                }
+
+                .result-tag {
+                        display: inline-block;
+                        padding: 3px 12px;
+                        border-radius: 30px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        margin-left: 12px;
+                }
+
+                .result-tag.correct {
+                        background: #c8e6c9;
+                        color: #1b5e20;
+                        border: 1px solid #2e7d32;
+                }
+
+                .result-tag.incorrect {
+                        background: #ffcdd2;
+                        color: #b71c1c;
+                        border: 1px solid #c62828;
+                }
+
+                .rationale-bar {
+                        display: none;
+                        background: var(--rat-bg);
+                        border: 2px solid var(--rat-border);
+                        border-radius: 16px;
+                        padding: 14px 20px;
+                        margin-top: 12px;
+                        font-size: 1rem;
+                        color: var(--text);
+                        line-height: 1.6;
+                        flex-shrink: 0;
+                        animation: slideIn 0.2s ease;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .rationale-bar.show {
+                        display: block;
+                }
+
+                .rationale-bar strong {
+                        display: block;
+                        color: var(--dark);
+                        font-size: 0.82rem;
+                        text-transform: uppercase;
+                        letter-spacing: 0.06em;
+                        margin-bottom: 6px;
+                        opacity: 0.75;
+                }
+
+                .selected-indicator {
+                        font-size: 0.85rem;
+                        color: var(--mid);
+                        margin-bottom: 6px;
+                }
+
+                .navigation {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 20px;
+                        background: var(--nav);
+                        border-top: 2px solid var(--accent);
+                        flex-shrink: 0;
+                        height: 65px;
+                        transition: background 0.4s, border-color 0.4s;
+                }
+
+                .nav-buttons {
+                        display: flex;
+                        gap: 12px;
+                }
+
+                .btn {
+                        padding: 10px 24px;
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        font-weight: 600;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 0.95rem;
+                        white-space: nowrap;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .btn-primary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                }
+
+                .btn-primary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-secondary {
+                        background: linear-gradient(145deg, var(--mid), var(--dark));
+                        color: white;
+                        opacity: 0.85;
+                }
+
+                .btn-secondary:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                        opacity: 1;
+                }
+
+                .btn-random {
+                        background: linear-gradient(145deg, var(--accent), #c8a000);
+                        color: var(--dark);
+                }
+
+                .btn-random:hover:not(:disabled) {
+                        transform: translateY(-2px);
+                }
+
+                .btn-assessment {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--accent);
+                }
+
+                .btn-assessment:hover {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                }
+
+                .btn-skip {
+                        background: white;
+                        color: var(--dark);
+                        border: 2px solid var(--border);
+                        margin-right: 8px;
+                }
+
+                .btn-skip:hover:not(:disabled) {
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        border-color: var(--mid);
+                }
+
+                .btn-cancel {
+                        background: linear-gradient(145deg, #ef9a9a, #e57373);
+                        color: white;
+                        display: none;
+                }
+
+                .btn-cancel.show {
+                        display: flex;
+                }
+
+                .btn:disabled {
+                        opacity: 0.4;
+                        cursor: not-allowed;
+                        transform: none !important;
+                }
+
+                .modal-overlay {
+                        display: none;
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, 0.55);
+                        z-index: 200;
+                        align-items: center;
+                        justify-content: center;
+                        backdrop-filter: blur(3px);
+                }
+
+                .modal-overlay.open {
+                        display: flex;
+                }
+
+                .modal {
+                        background: white;
+                        border-radius: 28px;
+                        width: min(92vw, 700px);
+                        height: 88vh;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+                        overflow: hidden;
+                        animation: modalPop 0.2s ease;
+                }
+
+                .modal-header {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        padding: 18px 24px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-bottom: 3px solid var(--accent);
+                        flex-shrink: 0;
+                }
+
+                .modal-header h2 {
+                        font-size: 1.15rem;
+                        font-weight: 700;
+                }
+
+                .modal-close {
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: background 0.15s;
+                }
+
+                .modal-close:hover {
+                        background: rgba(255, 255, 255, 0.4);
+                }
+
+                .modal-search {
+                        padding: 14px 20px;
+                        border-bottom: 1px solid #eee;
+                        flex-shrink: 0;
+                }
+
+                .modal-search input {
+                        width: 100%;
+                        padding: 9px 16px;
+                        border: 2px solid var(--border);
+                        border-radius: 50px;
+                        font-size: 0.95rem;
+                        outline: none;
+                        transition: border-color 0.15s;
+                }
+
+                .modal-search input:focus {
+                        border-color: var(--mid);
+                }
+
+                .modal-body {
+                        flex: 1;
+                        overflow-y: auto;
+                        padding: 16px 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        min-height: 0;
+                }
+
+                .as-card {
+                        border: 2px solid #e0e0e0;
+                        border-radius: 16px;
+                        padding: 12px 16px;
+                        cursor: pointer;
+                        transition: all 0.15s;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        background: white;
+                }
+
+                .as-card:hover {
+                        border-color: var(--mid);
+                        background: var(--hover);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .as-card.active {
+                        border-color: var(--accent);
+                        background: #fffde7;
+                }
+
+                .as-card.hidden {
+                        display: none !important;
+                }
+
+                .as-num {
+                        background: linear-gradient(145deg, var(--dark), var(--mid));
+                        color: white;
+                        width: 38px;
+                        height: 38px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        font-size: 0.9rem;
+                        flex-shrink: 0;
+                        border: 2px solid var(--accent);
+                }
+
+                .as-info {
+                        flex: 1;
+                        min-width: 0;
+                }
+
+                .as-title {
+                        font-weight: 600;
+                        font-size: 0.82rem;
+                        color: #333;
+                        line-height: 1.3;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                }
+
+                .as-count {
+                        font-size: 0.72rem;
+                        color: #888;
+                        margin-top: 2px;
+                }
+
+                @keyframes slideIn {
+                        from {
+                                opacity: 0;
+                                transform: translateY(6px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: translateY(0);
+                        }
+                }
+
+                @keyframes modalPop {
+                        from {
+                                opacity: 0;
+                                transform: scale(0.92) translateY(20px);
+                        }
+
+                        to {
+                                opacity: 1;
+                                transform: scale(1) translateY(0);
+                        }
+                }
+        </style>
+</head>
+
+<body>
+        <div class="container">
+                <div class="header">
+                        <div>
+                                <h1>🩺 ATI RN Nursing Exam Comprehensive Study Guide <span>EXAM MODE</span></h1>
+                                <div class="subtitle">29 questions &middot; Complex Adult Health — Unit 1 Test Review</div>
+                        </div>
+                        <div class="counter" id="counter">1/29</div>
+                </div>
+                <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div class="main-content">
+                        <div class="assessment-indicator" id="assessmentDisplay">
+                                <i id="assessmentIcon">📘</i>
+                                <span id="assessmentName">Complex Adult Health — Unit 1 Test Review</span>
+                                <span class="badge" id="qTypeBadge">Single</span>
+                                <span id="resultTag" class="result-tag"></span>
+                        </div>
+                        <div class="question-area">
+                                <div class="question-header">
+                                        <div class="question-number" id="questionNumber">1</div>
+                                        <div class="question-text" id="question"></div>
+                                </div>
+                                <div class="options-container" id="options"></div>
+                                <div id="selectedCount" class="selected-indicator"></div>
+                                <div class="rationale-bar" id="rationaleBar"><strong>💡 Rationale:</strong><span
+                                                id="rationaleText"></span></div>
+                        </div>
+                </div>
+                <div class="navigation">
+                        <div style="display:flex;gap:12px;">
+                                <button class="btn btn-secondary" id="prevBtn" onclick="previousCard()">← Prev</button>
+                                <button class="btn btn-random" onclick="randomCard()">🎲 Random</button>
+                                <button class="btn btn-assessment" onclick="openAssessmentModal()">📚
+                                        Assessment</button>
+                        </div>
+                        <div class="nav-buttons">
+                                <button class="btn btn-cancel" id="cancelBtn" onclick="cancelSelection()">✕
+                                        Clear</button>
+                                <button class="btn btn-skip" id="skipBtn" onclick="skipCard()">⏭ Skip</button>
+                                <button class="btn btn-primary" id="nextBtn" onclick="nextCard()">Next →</button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal-overlay" id="chapterModal">
+                <div class="modal">
+                        <div class="modal-header">
+                                <h2>📚 Select a Assessment</h2>
+                                <button class="modal-close" onclick="closeAssessmentModal()">✕</button>
+                        </div>
+                        <div class="modal-search">
+                                <input type="text" id="chSearch" placeholder="🔍  Search chapters..."
+                                        oninput="filterAssessments(this.value)" />
+                        </div>
+                        <div class="modal-body" id="assessmentGrid"></div>
+                </div>
+        </div>
+
+        <script>
+                (function () {
+                        var currentQuestion = 0;
+                        var selectedOptions = [];
+                        var answered = false;
+
+                        var questions = [
+    {
+        "q": "A nurse is triaging clients in the emergency department (ED). Which client should the nurse prioritize to receive care first?",
+        "opts": [
+            "A 22-year-old with a painful and swollen right wrist",
+            "A 45-year-old reporting chest pain and diaphoresis",
+            "A 60-year-old reporting difficulty swallowing and nausea",
+            "An 81-year-old with a respiratory rate of 28 breaths/min and a temperature of 101°F"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Chest pain with diaphoresis indicates a potential myocardial infarction, which is an immediate threat to life classifying this client as emergent. A painful swollen wrist is nonurgent with no immediate threat to life. Difficulty swallowing and nausea are uncomfortable but not immediately life-threatening. The elderly client with elevated respiratory rate and fever is urgent but not emergent as there is no immediate threat to life at this moment.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 1
+    },
+    {
+        "q": "A nurse is triaging clients in the emergency department. Which client should be considered urgent?",
+        "opts": [
+            "A 20-year-old female with a chest stab wound and tachycardia",
+            "A 45-year-old homeless man with a skin rash and sore throat",
+            "A 75-year-old female with a cough and a temperature of 102°F",
+            "A 50-year-old male with new-onset confusion and slurred speech"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "A high fever above 101°F with cough is urgent because the client needs to be seen quickly due to risk of deterioration, but is not in an immediately life-threatening situation. The chest stab wound with tachycardia is emergent due to immediate threat to life from hemorrhage. New-onset confusion with slurred speech is emergent as it indicates possible stroke requiring immediate intervention. A skin rash and sore throat are nonurgent as there is no significant risk for deterioration.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 2
+    },
+    {
+        "q": "A nurse is triaging clients in the emergency department. Which client should the nurse classify as nonurgent?",
+        "opts": [
+            "A 44-year-old with chest pain and diaphoresis",
+            "A 50-year-old with chest trauma and absent breath sounds",
+            "A 62-year-old with a simple fracture of the left arm",
+            "A 79-year-old with a temperature of 104°F"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "A simple arm fracture with palpable pulses is currently stable with no significant risk of clinical deterioration, classifying it as nonurgent and able to wait several hours. Chest pain with diaphoresis is emergent due to potential cardiac event. Chest trauma with absent breath sounds suggests pneumothorax requiring immediate intervention. A temperature of 104°F indicates a high fever with risk of deterioration, classifying this client as urgent.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 3
+    },
+    {
+        "q": "An emergency room nurse is triaging victims of a multi-casualty event. Which client should receive care first?",
+        "opts": [
+            "A 30-year-old distraught mother holding her crying child",
+            "A 65-year-old conscious male with a head laceration",
+            "A 26-year-old male who has pale, cool, clammy skin",
+            "A 48-year-old with a simple fracture of the lower leg"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Pale, cool, clammy skin indicates shock which is an immediately life-threatening condition requiring urgent intervention to prevent cardiovascular collapse and death. The distraught mother has no injuries and would be the lowest priority. The head laceration needs attention but is not immediately life-threatening. The simple lower leg fracture is a stable injury that can wait without significant risk of deterioration.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 4
+    },
+    {
+        "q": "A nurse is field-triaging clients after an industrial accident. Which client condition should the nurse triage with a red tag?",
+        "opts": [
+            "Dislocated right hip and an open fracture of the right lower leg",
+            "Large contusion to the forehead and a bloody nose",
+            "Closed fracture of the right clavicle and arm numbness",
+            "Multiple fractured ribs and shortness of breath"
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Multiple rib fractures with shortness of breath indicate a likely pneumothorax which is immediately life-threatening and requires urgent intervention, earning a red tag. The hip dislocation and open fracture are serious but stable injuries classified as yellow tag (can wait 30 minutes to 2 hours). Forehead contusion and bloody nose are minor wounds classified as green tag. Clavicle fracture with arm numbness is a stable major injury classified as yellow tag.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 5
+    },
+    {
+        "q": "A nurse cares for clients during a community-wide disaster drill. One of the clients asks, \"Why are the individuals with black tags not receiving any care?\" How should the nurse respond?",
+        "opts": [
+            "To do the greatest good for the greatest number of people, it is necessary to sacrifice some.",
+            "Not everyone will survive a disaster, so it is best to identify those people early and move on.",
+            "In a disaster, extensive resources are not used for one person at the expense of many others.",
+            "With black tags, volunteers can identify those who are dying and can give them comfort care."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "The correct response explains that military-style mass casualty triage focuses on doing the most good for the most people; resources are not expended on those with overwhelming injuries who have minimal chance of survival. Saying it is necessary to sacrifice people implies the goal is harmful rather than focused on saving the most lives. Telling people to move on does not adequately explain the rationale and minimizes feelings. Black tags do not specifically designate clients for volunteer comfort care; that is not their purpose.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 6
+    },
+    {
+        "q": "Emergency medical services (EMS) brings a large number of clients to the emergency department following a mass casualty incident. The nurse identifies the clients with which injuries with yellow tags? (Select all that apply.)",
+        "opts": [
+            "Partial-thickness burns covering both legs",
+            "Open fractures of both legs with absent pedal pulses",
+            "Neck injury and numbness of both legs",
+            "Small pieces of shrapnel embedded in both eyes",
+            "Head injury and difficult to arouse F. Bruising and pain in the right lower abdomen ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            3
+        ],
+        "rat": "Yellow tag clients have serious injuries requiring treatment within 30 minutes to 2 hours. Burns, spinal injuries, eye injuries, and stable abdominal injuries fall into this category as they are serious but can temporarily wait for definitive care. Open fractures with absent pedal pulses indicate vascular compromise requiring immediate intervention warranting a red tag. A head injury with decreased consciousness is immediately life-threatening and warrants a red tag for emergent care.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 7
+    },
+    {
+        "q": "A nurse triages clients arriving at the hospital after a mass casualty. Which clients are correctly classified? (Select all that apply.)",
+        "opts": [
+            "A 35-year-old female with severe chest pain: red tag",
+            "A 42-year-old male with full-thickness body burns: green tag",
+            "A 55-year-old female with a scalp laceration: black tag",
+            "A 60-year-old male with an open fracture with distal pulses: yellow tag",
+            "An 88-year-old male with shortness of breath and chest bruises: green tag"
+        ],
+        "correct": [
+            0,
+            3
+        ],
+        "rat": "Severe chest pain is immediately life-threatening and correctly classified as red tag. An open fracture with intact distal pulses is a serious but stable injury that can wait 30-120 minutes, correctly classified as yellow tag. Full-thickness body burns are expected to be fatal without extensive resources and are classified as black, not green. A scalp laceration is a minor wound classified as green tag, not black. Shortness of breath with chest bruising suggests significant thoracic injury requiring emergent red tag classification.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 8
+    },
+    {
+        "q": "A hospital prepares for a mass casualty event. Which functions are correctly paired with the personnel role? (Select all that apply.)",
+        "opts": [
+            "Paramedic — Decides the number, acuity, and resource needs of clients",
+            "Hospital incident commander — Assumes overall leadership for implementing the emergency plan",
+            "Public information officer — Provides advanced life support during transportation to the hospital",
+            "Triage officer — Rapidly evaluates each client to determine priorities for treatment",
+            "Medical command physician — Serves as a liaison between the health care facility and the media"
+        ],
+        "correct": [
+            1,
+            3
+        ],
+        "rat": "The hospital incident commander assumes overall leadership for implementing the emergency plan and is correctly paired. The triage officer rapidly evaluates each client to determine treatment priorities and is correctly paired. The paramedic provides advanced life support during transport, not the public information officer. The public information officer serves as a liaison between the healthcare facility and the media, not the medical command physician. The medical command physician decides the number, acuity, and resource needs of clients.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 9
+    },
+    {
+        "q": "A nurse is providing health education at a community center. Which instructions should the nurse include in teaching about prevention of lightning injuries during a storm? (Select all that apply.)",
+        "opts": [
+            "Seek shelter inside a building or vehicle.",
+            "Hide under a tall tree.",
+            "Do not take a bath or shower.",
+            "Turn off the television.",
+            "Remove all body piercings. F. Put down golf clubs or gardening tools. ✓"
+        ],
+        "correct": [
+            0,
+            2,
+            3
+        ],
+        "rat": "Seeking shelter inside a building or enclosed vehicle protects from direct lightning strikes. Avoiding bathing or showering prevents injury from lightning traveling through plumbing. Turning off electrical equipment including televisions protects from electrical surge injury. Putting down metal objects such as golf clubs eliminates conductors that attract lightning. Standing under a tall tree is extremely dangerous as trees are common lightning strike targets. Body piercings do not increase the likelihood of being struck by lightning and removing them is not necessary.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 10
+    },
+    {
+        "q": "A provider prescribes Crotalidae Polyvalent Immune Fab (CroFab) for a client who is admitted after being bitten by a pit viper snake. Which assessment should the nurse complete prior to administering this medication?",
+        "opts": [
+            "Assess temperature and for signs of fever.",
+            "Check the client's creatinine kinase level.",
+            "Ask about allergies to pineapple or papaya.",
+            "Inspect the skin for signs of urticaria (hives)."
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "CroFab is an antivenom for pit viper snakebites that contains bromelain, a derivative of pineapple. Clients must be assessed for hypersensitivity to pineapple, papaya, and sheep protein before administration to prevent anaphylaxis. Temperature and urticaria are important to assess during and after administration as signs of serum sickness, not before. Creatinine kinase levels monitor muscle damage from envenomation but do not impact the decision to administer CroFab.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 11
+    },
+    {
+        "q": "A nurse plans care for a client admitted with a snakebite to the right leg. With whom should the nurse collaborate?",
+        "opts": [
+            "The facility's neurologist",
+            "The poison control center",
+            "The physical therapy department",
+            "A herpetologist (snake specialist)"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "The regional poison control center must be contacted immediately for specific advice on antivenom administration and client management for any snakebite. A neurologist is consulted for neurological complications but is not the first priority collaboration. Physical therapy is not relevant in the acute care phase of snakebite management. A herpetologist studies snakes but is not a clinical resource for treatment guidance in a medical setting.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 12
+    },
+    {
+        "q": "A nurse assesses a client recently bitten by a coral snake. Which assessment should the nurse complete first?",
+        "opts": [
+            "Unilateral peripheral swelling",
+            "Clotting times",
+            "Cardiopulmonary status",
+            "Electrocardiogram rhythm"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Coral snake venom has neurotoxic properties that block neurotransmission causing ascending paralysis and ultimately respiratory paralysis. Cardiopulmonary status is the priority assessment because respiratory failure is the most dangerous consequence. Peripheral swelling and clotting problems occur with pit viper bites but not coral snakebites due to the different venom mechanisms. Electrocardiogram rhythm is not directly affected by neurotoxins making it a lower priority assessment.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 13
+    },
+    {
+        "q": "A provider prescribes a rewarming bath for a client who presents with partial-thickness frostbite. Which action should the nurse take prior to starting this treatment?",
+        "opts": [
+            "Administer intravenous morphine.",
+            "Wrap the limb with a compression dressing.",
+            "Massage the frostbitten areas.",
+            "Assess the limb for compartment syndrome."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Rapid rewarming in a water bath causes extreme pain as circulation is restored to frozen tissue. Intravenous morphine must be administered before the procedure to adequately control the severe pain experienced during rewarming. Compression dressings are not appropriate for frostbite and could further compromise circulation. Massaging frostbitten areas is absolutely contraindicated as it damages fragile frozen tissue. Compartment syndrome assessment is important but is not the priority action before initiating the rewarming bath.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 14
+    },
+    {
+        "q": "A nurse is caring for clients in a busy emergency department. Which actions should the nurse take to ensure client and staff safety? (Select all that apply.)",
+        "opts": [
+            "Leave the stretcher in the lowest position with rails down so that the client can access the bathroom.",
+            "Use two identifiers before each intervention and before medication administration.",
+            "Attempt de-escalation strategies for clients who demonstrate aggressive behaviors.",
+            "Search the belongings of clients with altered mental status to gain essential medical information.",
+            "Isolate clients who have immune suppression disorders to prevent hospital-acquired infections."
+        ],
+        "correct": [
+            1,
+            2,
+            3
+        ],
+        "rat": "Using two identifiers per The Joint Commission's National Patient Safety Goals prevents medication errors and wrong-patient events. De-escalation strategies protect staff and other clients from aggressive or violent individuals. Searching belongings of clients with altered mental status helps obtain essential medical information when the client cannot provide it. Stretchers should be in the lowest position with rails up, not down, for fall prevention. Immunocompromised clients need protective isolation, but clients with contagious conditions need isolation to protect others; these are two different scenarios.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 15
+    },
+    {
+        "q": "While on a camping trip, a nurse cares for an adult client who had a drowning incident in a lake and is experiencing agonal breathing with a palpable pulse. Which action should the nurse take first?",
+        "opts": [
+            "Deliver rescue breaths.",
+            "Wrap the client in dry blankets.",
+            "Assess for signs of bleeding.",
+            "Check for a carotid pulse."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Agonal breathing with a palpable pulse means the client is not in cardiac arrest but has severely compromised breathing requiring immediate rescue breaths to prevent respiratory failure and cardiac arrest. A pulse is already palpable so checking for a carotid pulse is redundant and wastes critical time. Wrapping in blankets addresses hypothermia which is secondary to establishing adequate breathing. Assessing for bleeding is important but the airway and breathing must be addressed first per the ABC priority framework.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 16
+    },
+    {
+        "q": "An emergency department (ED) charge nurse prepares to receive clients from a mass casualty within the community. What is the role of this nurse during the event?",
+        "opts": [
+            "Ask ED staff to discharge clients from the medical-surgical units in order to make room for critically injured victims.",
+            "Call additional medical-surgical and critical care nursing staff to come to the hospital to assist when victims are brought in.",
+            "Inform the incident commander at the mass casualty scene about how many victims may be handled by the ED.",
+            "Direct medical-surgical and critical care nurses to assist with clients currently in the ED while emergency staff prepare to receive the mass casualty victims."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "The ED charge nurse's role is to coordinate staff currently available by directing other nurses to care for existing ED clients, freeing emergency staff to prepare for incoming mass casualty victims. Discharging clients from medical-surgical units is the responsibility of the house supervisor and unit directors. Calling in additional staff is the hospital incident commander's responsibility. The medical command physician communicates with on-scene personnel about capacity, not the charge nurse.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 17
+    },
+    {
+        "q": "A nurse is evaluating levels and functions of trauma centers. Which function is appropriately paired with the level of the trauma center?",
+        "opts": [
+            "Level I — Located within remote areas and provides advanced life support within resource capabilities",
+            "Level II — Located within community hospitals and provides care to most injured clients",
+            "Level III — Located in rural communities and provides only basic care to clients",
+            "Level IV — Located in large teaching hospitals and provides a full continuum of trauma care for all clients"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Level II trauma centers are located in community hospitals and provide care to the majority of injured patients while playing a significant role in injury management, education, and prevention. Level I trauma centers are large teaching hospitals providing a full continuum of care for all trauma patients. Level III trauma centers focus on initial stabilization and patient transfer, not exclusively basic care. Level IV trauma centers are located in rural and remote areas providing ACLS and stabilization before transfer.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 18
+    },
+    {
+        "q": "A nurse cares for a client with burn injuries during the resuscitation phase. Which actions are priorities during this phase? (Select all that apply.)",
+        "opts": [
+            "Administer analgesics.",
+            "Prevent wound infections.",
+            "Provide fluid replacement.",
+            "Decrease core temperature.",
+            "Initiate physical therapy."
+        ],
+        "correct": [
+            0,
+            1,
+            2
+        ],
+        "rat": "Pain management with analgesics is a priority during the resuscitation phase as burn injuries cause severe pain. Wound infection prevention through careful wound care is essential as infection is a leading cause of mortality in burn patients. Fluid replacement supports circulation and organ perfusion, preventing burn shock. Decreasing core temperature is contraindicated; maintaining body temperature is the goal as burn clients lose significant heat. Physical therapy is inappropriate during the acute resuscitation phase; it is initiated after stabilization.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 19
+    },
+    {
+        "q": "A nurse uses the rule of nines to assess a client with burn injuries to the entire back region and left arm. How should the nurse document the percentage of the client's body that sustained burns?",
+        "opts": [
+            "9%",
+            "18%",
+            "27%",
+            "36%"
+        ],
+        "correct": [
+            2
+        ],
+        "rat": "Using the rule of nines, the posterior trunk (back) equals 18% of total body surface area, and each arm equals 9%. The client with burns to the entire back (18%) and one arm (9%) has a total of 27% body surface area burned. The head and neck each account for 9%, the anterior trunk accounts for 18%, each leg accounts for 18%, and the perineum accounts for 1%. Accurate calculation is essential for guiding fluid resuscitation using the Parkland formula.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 20
+    },
+    {
+        "q": "A nurse is caring for a client who is receiving an epidural infusion for pain management. Which assessment finding requires immediate intervention from the nurse?",
+        "opts": [
+            "Redness at the catheter insertion site",
+            "Report of headache and stiff neck",
+            "Temperature of 100.1°F (37.8°C)",
+            "Pain rating of 8 on a scale of 0 to 10"
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "Headache and stiff neck are classic signs of meningitis, a serious complication of epidural therapy resulting from infection or cerebrospinal fluid leakage, requiring immediate provider notification. Redness at the insertion site indicates local infection that requires monitoring and reporting but is not immediately life-threatening. A temperature of 100.1°F is below the threshold of concern (greater than 101°F) for meningitis and requires monitoring. Pain of 8/10 requires analgesic management but does not represent an immediate life-threatening complication.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 21
+    },
+    {
+        "q": "While assessing a client's peripheral IV site, the nurse observes a streak of red along the vein path and palpates a 4-cm venous cord. How should the nurse document this finding?",
+        "opts": [
+            "Grade 3 phlebitis at IV site",
+            "Infection at IV site",
+            "Thrombosed area at IV site",
+            "Infiltration at IV site"
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "According to the INS Phlebitis Scale, Grade 3 phlebitis is characterized by pain at the access site with erythema and/or edema, streak formation, and a palpable cord. The findings of a red streak along the vein path and a palpable cordlike vein match Grade 3 criteria exactly. No signs of purulent drainage are present to indicate infection. Thrombosis would present with clot formation but the description is specifically consistent with phlebitis grading. Infiltration presents with edema and cool skin from fluid leaking into tissue, not a red streak and cord.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 22
+    },
+    {
+        "q": "A nurse prepares to administer a blood transfusion to a client and checks the blood label with a second registered nurse using the ISBT universal bar-coding system. Which components must be present on the blood label in bar code and in eye-readable format? (Select all that apply.)",
+        "opts": [
+            "Unique facility identifier",
+            "Lot number related to the donor",
+            "Name of the client receiving blood",
+            "ABO group and Rh type of the donor",
+            "Blood type of the client receiving blood"
+        ],
+        "correct": [
+            0,
+            1,
+            3
+        ],
+        "rat": "The ISBT universal bar-coding system contains four components: the unique facility identifier, the lot number relating to the donor, the product code, and the ABO group and Rh type of the donor. The client's name is verified through other identification processes such as the armband but is not a component of the ISBT bar-coding system on the blood label. The blood type of the client receiving blood is not a component of the ISBT blood label system.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 23
+    },
+    {
+        "q": "A medical-surgical nurse is concerned about the incidence of complications related to IV therapy, including bloodstream infection. Which intervention should the nurse suggest to the management team to make the biggest impact on decreasing complications?",
+        "opts": [
+            "Initiate a dedicated team to insert access devices.",
+            "Require additional education for all nurses.",
+            "Limit the use of peripheral venous access devices.",
+            "Perform quality control testing on skin preparation products."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "The Centers for Disease Control and Prevention recommends dedicated IV teams as the single most effective intervention to reduce IV-related complications, decrease costs, and improve client satisfaction and outcomes. Additional education improves knowledge but does not have the same sustained impact on reducing complications as a specialized team. Limiting IV use is not practical as venous access is frequently clinically necessary. Quality control of skin preparation products addresses only one small aspect of IV insertion technique and infection prevention.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 24
+    },
+    {
+        "q": "A nurse delegates care to an unlicensed assistive personnel (UAP). Which statement should the nurse include when delegating hygiene for a client who has a vascular access device?",
+        "opts": [
+            "Provide a bed bath instead of letting the client take a shower.",
+            "Use sterile technique when changing the dressing.",
+            "Disconnect the intravenous fluid tubing prior to the client's bath.",
+            "Use a plastic bag to cover the extremity with the device."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Using a plastic bag to cover the vascular access device during bathing is a simple task within the UAP scope of practice that protects the insertion site and dressing from moisture. Clients with vascular access devices can shower and do not need to be restricted to bed baths. Dressing changes using sterile technique require nursing knowledge and judgment and cannot be delegated to UAP. Disconnecting IV fluid tubing requires clinical nursing assessment and skill and is outside the scope of UAP practice.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 25
+    },
+    {
+        "q": "A nurse assesses a client's peripheral IV site and notices edema and tenderness above the site. Which action should the nurse take next?",
+        "opts": [
+            "Apply cold compresses to the IV site.",
+            "Elevate the extremity on a pillow.",
+            "Flush the catheter with normal saline.",
+            "Stop the infusion of intravenous fluids."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Edema and tenderness above the IV site are classic signs of infiltration where IV fluid is leaking into surrounding tissue. The first and most important action is to stop the infusion and remove the catheter to prevent further tissue damage. Cold or warm compresses and elevating the extremity are comfort measures applied after the catheter is discontinued. Flushing the catheter would force more fluid into the surrounding tissue worsening the infiltration and causing further harm.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 26
+    },
+    {
+        "q": "A nurse teaches a client who is being discharged home with a peripherally inserted central catheter (PICC). Which statement should the nurse include in this client's teaching?",
+        "opts": [
+            "Avoid carrying your grandchild with the arm that has the central catheter.",
+            "Be sure to place the arm with the central catheter in a sling during the day.",
+            "Flush the peripherally inserted central catheter line with normal saline daily.",
+            "You can use the arm with the central catheter for most activities of daily living."
+        ],
+        "correct": [
+            0
+        ],
+        "rat": "Heavy lifting such as carrying a child can dislodge the PICC catheter or occlude the lumen; clients must avoid heavy lifting with the affected arm. A sling is unnecessary and restricts normal movement inappropriately; clients can use the arm for most daily activities except heavy lifting. PICC lines are flushed with heparin solution according to protocol, not plain normal saline. While clients can participate in most daily activities, the statement is misleading without the important restriction about heavy lifting.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 27
+    },
+    {
+        "q": "A nurse is assessing clients who have intravenous therapy prescribed. Which assessment finding for a client with a peripherally inserted central catheter (PICC) requires immediate attention?",
+        "opts": [
+            "The initial site dressing is 3 days old.",
+            "The PICC was inserted 4 weeks ago.",
+            "A securement device is absent.",
+            "Upper extremity swelling is noted."
+        ],
+        "correct": [
+            3
+        ],
+        "rat": "Upper extremity swelling indicates possible infiltration of the PICC line into surrounding tissue requiring immediate removal and assessment of the catheter. The initial dressing should be changed within 24 hours but does not require immediate intervention compared to swelling. PICCs can remain in place for months or even years making 4 weeks an acceptable dwell time. Absent securement devices increase complication risk and require correction but are not as immediately dangerous as active infiltration indicated by swelling.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 28
+    },
+    {
+        "q": "A nurse is caring for a client who has just had a central venous access line inserted. Which action should the nurse take next?",
+        "opts": [
+            "Begin the prescribed infusion via the new access.",
+            "Ensure an x-ray is completed to confirm placement.",
+            "Check medication calculations with a second RN.",
+            "Make sure the solution is appropriate for a central line."
+        ],
+        "correct": [
+            1
+        ],
+        "rat": "All central venous access devices require confirmation of proper tip placement at the caval-atrial junction (CAJ) by chest x-ray before any solutions are infused to ensure the catheter is not malpositioned in a vessel, tissue, or the pleural space. Beginning the infusion before placement confirmation could deliver fluid or medications into unintended spaces causing serious harm. Medication calculation checks are a safety measure that follow placement confirmation. Any IV solution including hyperosmolar solutions can be given through a central line once placement is confirmed.",
+        "chapName": "Complex Adult Health — Unit 1 Test Review",
+        "chapter": 4,
+        "theme": {
+            "dark": "#0d2b6b",
+            "mid": "#1a4ba8",
+            "accent": "#ffd700",
+            "bg": "#eef3ff",
+            "border": "#b8ccf0",
+            "hover": "#d8e6ff",
+            "nav": "#c0d0f0",
+            "rat_bg": "#dce8ff",
+            "rat_border": "#1a4ba8",
+            "text": "#061840"
+        },
+        "displayNumber": 29
+    }
+];
+
+var assessmentsInfo = [{"num": 4, "name": "Complex Adult Health — Unit 1 Test Review", "count": 29}];
+
+                        var themes = {
+                                1: { dark: "#0d2b6b", mid: "#1a4ba8", accent: "#ffd700", bg: "#eef3ff", border: "#b8ccf0", hover: "#d8e6ff", nav: "#c0d0f0", rat_bg: "#dce8ff", rat_border: "#1a4ba8", text: "#061840" },
+                                2: { dark: "#2a0a4a", mid: "#5e2a84", accent: "#ffb347", bg: "#f4eaff", border: "#d4b8f0", hover: "#e6cdff", nav: "#c4a0f0", rat_bg: "#ebd9ff", rat_border: "#5e2a84", text: "#1a0530" },
+                                3: { dark: "#053b3b", mid: "#0d7a7a", accent: "#ff9f1c", bg: "#e0f7f7", border: "#a0d8d8", hover: "#bdf0f0", nav: "#8fd1d1", rat_bg: "#ccf2f2", rat_border: "#0d7a7a", text: "#022020" },
+                                4: { dark: "#4a0d2b", mid: "#8a1a4b", accent: "#fcc200", bg: "#ffeef4", border: "#f0b8cc", hover: "#ffe6eb", nav: "#f0c0d0", rat_bg: "#ffdce8", rat_border: "#8a1a4b", text: "#2a0518" },
+                                5: { dark: "#1a2238", mid: "#364566", accent: "#ff6b6b", bg: "#edf2f7", border: "#cbd5e1", hover: "#e2e8f0", nav: "#94a3b8", rat_bg: "#f1f5f9", rat_border: "#364566", text: "#0f172a" },
+                                6: { dark: "#06402b", mid: "#107a53", accent: "#ffc107", bg: "#e6f6ee", border: "#a8dfc4", hover: "#c2ead6", nav: "#92d3b5", rat_bg: "#d6f2e2", rat_border: "#107a53", text: "#022416" },
+                                7: { dark: "#3d0c02", mid: "#8b1c08", accent: "#ffb300", bg: "#ffede6", border: "#f4c2b5", hover: "#fce0d4", nav: "#edb1a1", rat_bg: "#fcdbd1", rat_border: "#8b1c08", text: "#2a0701" },
+                                8: { dark: "#3b2313", mid: "#7a4a28", accent: "#3b82f6", bg: "#f5ece4", border: "#d6bbad", hover: "#e8d5c8", nav: "#c4ab9d", rat_bg: "#efe5dd", rat_border: "#7a4a28", text: "#26150a" }
+                        };
+
+                        function applyTheme(chapterId) {
+                                var t = themes[chapterId] || themes[1];
+                                var r = document.documentElement.style;
+                                r.setProperty('--dark', t.dark); r.setProperty('--mid', t.mid);
+                                r.setProperty('--accent', t.accent); r.setProperty('--bg', t.bg);
+                                r.setProperty('--border', t.border); r.setProperty('--hover', t.hover);
+                                r.setProperty('--nav', t.nav); r.setProperty('--rat-bg', t.rat_bg);
+                                r.setProperty('--rat-border', t.rat_border); r.setProperty('--text', t.text);
+                        }
+
+                        function renderQuestion() {
+                                var q = questions[currentQuestion];
+                                applyTheme(q.chapter);
+                                document.getElementById('question').textContent = q.q;
+                                document.getElementById('questionNumber').textContent = q.displayNumber;
+                                document.getElementById('counter').textContent = q.displayNumber + '/29';
+                                document.getElementById('progressBar').style.width = (q.displayNumber / 29 * 100) + '%';
+                                document.getElementById('assessmentName').textContent = 'Assessment ' + q.chapter + ': ' + q.chapName;
+                                document.getElementById('qTypeBadge').textContent = q.correct.length > 1 ? 'SATA' : 'Single';
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = ''; resultTag.className = 'result-tag';
+                                document.getElementById('rationaleBar').className = 'rationale-bar';
+                                document.getElementById('rationaleText').textContent = '';
+
+                                var optContainer = document.getElementById('options');
+                                optContainer.innerHTML = '';
+                                var letters = ['A', 'B', 'C', 'D', 'E'];
+                                q.opts.forEach(function (opt, idx) {
+                                        var div = document.createElement('div');
+                                        div.className = 'option'; div.setAttribute('data-idx', idx);
+                                        var letter = document.createElement('div');
+                                        letter.className = 'option-letter'; letter.textContent = letters[idx];
+                                        var text = document.createElement('div'); text.textContent = opt;
+                                        div.appendChild(letter); div.appendChild(text);
+                                        div.onclick = function () { selectOption(idx); };
+                                        optContainer.appendChild(div);
+                                });
+
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                selectedOptions = []; answered = false;
+                                document.getElementById('prevBtn').disabled = currentQuestion === 0;
+                                document.getElementById('skipBtn').style.display = 'flex';
+                                document.getElementById('skipBtn').disabled = currentQuestion === questions.length - 1;
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                                document.getElementById('nextBtn').disabled = false;
+                        }
+
+                        function selectOption(idx) {
+                                if (answered) return;
+                                var q = questions[currentQuestion];
+                                if (q.correct.length > 1) {
+                                        var pos = selectedOptions.indexOf(idx);
+                                        if (pos === -1) selectedOptions.push(idx); else selectedOptions.splice(pos, 1);
+                                        document.getElementById('selectedCount').textContent = selectedOptions.length + ' option(s) selected';
+                                        var opts = document.querySelectorAll('.option');
+                                        opts.forEach(function (o) { o.className = 'option'; });
+                                        selectedOptions.forEach(function (i) { opts[i].className = 'option selected'; });
+                                        document.getElementById('cancelBtn').className = selectedOptions.length > 0 ? 'btn btn-cancel show' : 'btn btn-cancel';
+                                        document.getElementById('nextBtn').textContent = 'Submit';
+                                } else {
+                                        selectedOptions = [idx];
+                                        submitAnswer();
+                                }
+                        }
+
+                        function cancelSelection() {
+                                selectedOptions = [];
+                                document.querySelectorAll('.option').forEach(function (o) { o.className = 'option'; });
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('selectedCount').textContent = '';
+                                document.getElementById('nextBtn').textContent = 'Submit';
+                        }
+
+                        function submitAnswer() {
+                                if (selectedOptions.length === 0) return;
+                                var q = questions[currentQuestion];
+                                answered = true;
+                                var correct = q.correct;
+                                var isCorrect = selectedOptions.length === correct.length &&
+                                        selectedOptions.every(function (i) { return correct.indexOf(i) !== -1; });
+                                document.querySelectorAll('.option').forEach(function (o) {
+                                        var idx = parseInt(o.getAttribute('data-idx'));
+                                        if (correct.indexOf(idx) !== -1) o.className = 'option correct';
+                                        else if (selectedOptions.indexOf(idx) !== -1) o.className = 'option incorrect';
+                                });
+                                var resultTag = document.getElementById('resultTag');
+                                resultTag.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+                                resultTag.className = 'result-tag ' + (isCorrect ? 'correct' : 'incorrect');
+                                document.getElementById('cancelBtn').className = 'btn btn-cancel';
+                                document.getElementById('skipBtn').style.display = 'none';
+                                document.getElementById('nextBtn').textContent = 'Next →';
+                                if (q.rat) {
+                                        document.getElementById('rationaleText').textContent = q.rat;
+                                        document.getElementById('rationaleBar').className = 'rationale-bar show';
+                                }
+                        }
+
+                        window.nextCard = function () {
+                                if (!answered) { if (selectedOptions.length > 0) submitAnswer(); }
+                                else { if (currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); } }
+                        };
+                        window.skipCard = function () {
+                                if (!answered && currentQuestion < questions.length - 1) { currentQuestion++; renderQuestion(); }
+                        };
+                        window.previousCard = function () {
+                                if (currentQuestion > 0) { currentQuestion--; renderQuestion(); }
+                        };
+                        window.randomCard = function () {
+                                currentQuestion = Math.floor(Math.random() * questions.length); renderQuestion();
+                        };
+
+                        window.openAssessmentModal = function () {
+                                var grid = document.getElementById('assessmentGrid');
+                                grid.innerHTML = '';
+                                assessmentsInfo.forEach(function (ch) {
+                                        var card = document.createElement('div');
+                                        card.className = 'as-card';
+                                        card.setAttribute('data-ch', ch.num);
+                                        card.setAttribute('data-name', ch.name.toLowerCase());
+                                        var numEl = document.createElement('div'); numEl.className = 'as-num'; numEl.textContent = ch.num;
+                                        var infoEl = document.createElement('div'); infoEl.className = 'as-info';
+                                        var titleEl = document.createElement('div'); titleEl.className = 'as-title'; titleEl.textContent = ch.name;
+                                        var countEl = document.createElement('div'); countEl.className = 'as-count'; countEl.textContent = ch.count + ' questions';
+                                        infoEl.appendChild(titleEl); infoEl.appendChild(countEl);
+                                        card.appendChild(numEl); card.appendChild(infoEl);
+                                        card.onclick = function () {
+                                                var idx = questions.findIndex(function (q) { return q.chapter === ch.num; });
+                                                if (idx !== -1) { currentQuestion = idx; renderQuestion(); }
+                                                closeAssessmentModal();
+                                        };
+                                        grid.appendChild(card);
+                                });
+                                document.getElementById('chSearch').value = '';
+                                document.getElementById('chapterModal').className = 'modal-overlay open';
+                        };
+                        window.closeAssessmentModal = function () {
+                                document.getElementById('chapterModal').className = 'modal-overlay';
+                        };
+                        window.filterAssessments = function (val) {
+                                var v = val.toLowerCase();
+                                document.querySelectorAll('.as-card').forEach(function (card) {
+                                        var match = card.getAttribute('data-name').includes(v) || card.getAttribute('data-ch').includes(v);
+                                        card.className = match ? 'as-card' : 'as-card hidden';
+                                });
+                        };
+
+                        document.getElementById('chapterModal').addEventListener('click', function (e) {
+                                if (e.target === this) closeAssessmentModal();
+                        });
+                        document.addEventListener('keydown', function (e) {
+                                if (e.key === 'ArrowRight') nextCard();
+                                else if (e.key === 'ArrowLeft') previousCard();
+                                else if (e.key === 'Escape') closeAssessmentModal();
+                                else if (['1', '2', '3', '4'].includes(e.key) && !answered) {
+                                        var idx = parseInt(e.key) - 1;
+                                        if (idx < questions[currentQuestion].opts.length) selectOption(idx);
+                                }
+                                else if (e.key === 'Enter') nextCard();
+                        });
+
+                        renderQuestion();
+                })();
+        </script>
+</body>
+
+</html>
